@@ -2,6 +2,12 @@ const fs = require("node:fs");
 const path = require("node:path");
 const logDir = "./logs";
 
+function checkIfDirectoryExist() {
+  if (!fs.existsSync(logDir)) {
+    console.error("Directory doesnt exist!");
+  }
+}
+
 function readFiles() {
   fs.readdir(logDir, (err, files) => {
     if (err) {
@@ -23,6 +29,7 @@ function deleteFiles(files) {
       console.log(`Deleted files... ${file_path}`);
     });
   });
+  deleteDirectory();
 }
 
 function deleteDirectory() {
@@ -35,5 +42,5 @@ function deleteDirectory() {
   });
 }
 
+checkIfDirectoryExist();
 readFiles();
-deleteDirectory();

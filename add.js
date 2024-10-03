@@ -7,8 +7,9 @@ function checkIfDirectoryExist() {
     console.log("Directory Created");
     fs.mkdirSync(logDir);
     write();
+  } else {
+    console.log("Directory already exists!");
   }
-  console.log("Directory already exists!");
 }
 
 function write() {
